@@ -18,7 +18,7 @@ $(document).ready(function(){
     $(this).hide();
   });
 
-  $(".edit").click(function(){
+  $(".btn.btn-primary.edit").click(function(){
     $("#slctd_id").val("yo");
   });
 
@@ -40,17 +40,17 @@ $(document).ready(function(){
             <div class="row">
                 <div class="col-md-12">
                     <hr>
-                    <form role="form" action="" method="post">
-                        <div class="form-group"> 
+                    @* <form role="form" action="" method="post"> *@
+                        @* <div class="form-group">  *@
                             <div class="row border border-dark">
                                 <div class="col-md-1">
                                     <h6>ID</h6> 
-                                    <p id="record_id">@Html.DisplayFor(modelItem => item.id)</p> 
+                                    <p id="record_item0">@Html.DisplayFor(modelItem => item.id)</p> 
                                 </div>
                                 <div class="col-md-3">
                                     <h5>TYPE</h5>
                                     <select class="form-control" id="record_item1"> 
-                                        <option>@Html.DisplayFor(modelItem => item.type)</option>                                         
+                                        <option value=@Html.DisplayFor(modelItem => item.type) selected>@Html.DisplayFor(modelItem => item.type)</option>                                         
                                         <option>2</option>                                         
                                         <option>3</option>                                         
                                     </select>                                     
@@ -58,22 +58,20 @@ $(document).ready(function(){
                                 <div class="col-md-3">
                                     <h5>SUB-TYPE</h5>
                                     <select class="form-control" id="record_item2"> 
-                                        <option>@Html.DisplayFor(modelItem => item.subtype)</option>                                         
+                                        <option value=@Html.DisplayFor(modelItem => item.subtype) selected>@Html.DisplayFor(modelItem => item.subtype)</option>                                         
                                         <option>2</option>                                         
                                         <option>3</option>                                         
                                     </select>                                     
                                 </div>
                                 <div class="col-md-auto">
-                                    <h5>ACTION</h5>
-                                    <button type="submit" class="btn btn-primary">Submit</button>									   
+                                    <h5>ACTION</h5>                           	
+                                    <button class="btn btn-primary edit">Edit</button>	
+                                    @* <button type="submit" class="btn btn-primary">Submit</button>							    *@
                                 </div>
                             </div>
-                        </div>                         
+                        @* </div>                          *@
                         <hr/>
-                    </form>
-					<div class="col-md-auto">                                   
-						<button class="edit">Edit</button>   
-                    </div>
+                    @* </form> *@					
                 </div>
             </div>
 			}
