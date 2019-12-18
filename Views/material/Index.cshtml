@@ -5,10 +5,25 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("p").click(function(){
+    $(this).hide();
+  });
+});
+</script>
+</head>
+
 <div class="container">
             <div class="row">
-                <h1>Material Management</h1>
-                <hr>
+                <h1>Material Management</h1>                
+            </div>
+			<div class="row">
+                <div class="col-md-2" id="slctd_id" name="slctd_id" >Selected ID:</div>
+				<div class="col-md-2" id="slctd_type" name="slctd_type">Selected TYPE:</div>
+				<div class="col-md-2" id="slctd_subtype" name="slctd_subtype">Selected SUBTYPE:</div>
             </div>
 
 @foreach (var item in Model) {
@@ -51,4 +66,5 @@
 			}
         </div>         
         <!-- /container -->
+
 
