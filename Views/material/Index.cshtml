@@ -9,9 +9,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
+
   $("p").click(function(){
     $(this).hide();
   });
+
+  $("#edit").click(function(){
+    $(this).hide();
+  });
+
 });
 </script>
 </head>
@@ -30,7 +36,7 @@ $(document).ready(function(){
             <div class="row">
                 <div class="col-md-12">
                     <hr>
-                    <form role="form" action="./cgi-bin/assign.cgi" method="post">
+                    <form role="form" action="" method="post">
                         <div class="form-group"> 
                             <div class="row border border-dark">
                                 <div class="col-md-1">
@@ -55,7 +61,8 @@ $(document).ready(function(){
                                 </div>
                                 <div class="col-md-auto">
                                     <h5>ACTION</h5>
-                                    <button type="submit" class="btn btn-primary">Submit</button>                                     
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+									<button class="btn btn-primary" id="edit">Edit</button>   
                                 </div>
                             </div>
                         </div>                         
