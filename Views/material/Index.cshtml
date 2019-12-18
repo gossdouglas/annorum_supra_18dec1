@@ -5,17 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-
 <div class="container">
             <div class="row">
                 <h1>Material Management</h1>
                 <hr>
             </div>
+
+@foreach (var item in Model) {
             <div class="row">
                 <div class="col-md-12">
                     <hr>
@@ -24,20 +20,20 @@
                             <div class="row border border-dark">
                                 <div class="col-md-1">
                                     <h6>ID</h6> 
-                                    <p>10007</p> 
+                                    <p>@Html.DisplayFor(modelItem => item.id)</p> 
                                 </div>
                                 <div class="col-md-3">
                                     <h5>TYPE</h5>
-                                    <select class="form-control" disabled="true"> 
-                                        <option>1</option>                                         
+                                    <select class="form-control"> 
+                                        <option>@Html.DisplayFor(modelItem => item.type)</option>                                         
                                         <option>2</option>                                         
                                         <option>3</option>                                         
                                     </select>                                     
                                 </div>
                                 <div class="col-md-3">
                                     <h5>SUB-TYPE</h5>
-                                    <select class="form-control" disabled="true"> 
-                                        <option>1</option>                                         
+                                    <select class="form-control"> 
+                                        <option>@Html.DisplayFor(modelItem => item.subtype)</option>                                         
                                         <option>2</option>                                         
                                         <option>3</option>                                         
                                     </select>                                     
@@ -51,29 +47,8 @@
                         <hr/>
                     </form>
                 </div>
-            </div>             
+            </div>
+			}
         </div>         
         <!-- /container -->
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.id)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.id)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
-
-</table>
