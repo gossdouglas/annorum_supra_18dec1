@@ -1,0 +1,79 @@
+﻿@model IEnumerable<annorum_supra_18dec.Models.tbl_common_mtrl>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div class="container">
+            <div class="row">
+                <h1>Material Management</h1>
+                <hr>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <hr>
+                    <form role="form" action="./cgi-bin/assign.cgi" method="post">
+                        <div class="form-group"> 
+                            <div class="row border border-dark">
+                                <div class="col-md-1">
+                                    <h6>ID</h6> 
+                                    <p>10007</p> 
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>TYPE</h5>
+                                    <select class="form-control" disabled="true"> 
+                                        <option>1</option>                                         
+                                        <option>2</option>                                         
+                                        <option>3</option>                                         
+                                    </select>                                     
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>SUB-TYPE</h5>
+                                    <select class="form-control" disabled="true"> 
+                                        <option>1</option>                                         
+                                        <option>2</option>                                         
+                                        <option>3</option>                                         
+                                    </select>                                     
+                                </div>
+                                <div class="col-md-auto">
+                                    <h5>ACTION</h5>
+                                    <button type="submit" class="btn btn-primary">Submit</button>                                     
+                                </div>
+                            </div>
+                        </div>                         
+                        <hr/>
+                    </form>
+                </div>
+            </div>             
+        </div>         
+        <!-- /container -->
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.id)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
