@@ -16,7 +16,13 @@ namespace annorum_supra_18dec.Controllers
 
         // GET: material
         public ActionResult Index()
-        {
+        {          
+            annorum_supra_cmps411Entities entities = new annorum_supra_cmps411Entities();
+            List<tbl_common_mtrl> material = entities.tbl_common_mtrl.ToList();
+
+            ViewBag.type = new SelectList(db.tbl_common_mtrl, "type", "type");
+            ViewBag.subtype = new SelectList(db.tbl_common_mtrl, "subtype", "subtype");
+
             return View(db.tbl_common_mtrl.ToList());
         }
 
