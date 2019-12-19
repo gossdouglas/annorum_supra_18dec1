@@ -14,12 +14,12 @@ $(document).ready(function(){
     $(this).hide();
   });
 
-  $("#edit").click(function(){
-    $(this).hide();
-  });
-
   $(".btn.btn-primary.edit").click(function(){
     $("#slctd_id").val("yo");
+  });
+
+  $(".record").click(function(){
+    $("#slctd_id").val("record");
   });
 
 });
@@ -42,10 +42,10 @@ $(document).ready(function(){
                     <hr>
                     @* <form role="form" action="" method="post"> *@
                         @* <div class="form-group">  *@
-                            <div class="row border border-dark">
+                            <div class="record">
                                 <div class="col-md-1">
                                     <h6>ID</h6> 
-                                    <p id="record_item0">@Html.DisplayFor(modelItem => item.id)</p> 
+                                    <p id="record_item0" value=@Html.DisplayFor(modelItem => item.id)>@Html.DisplayFor(modelItem => item.id)</p> 
                                 </div>
                                 <div class="col-md-3">
                                     <h5>TYPE</h5>
