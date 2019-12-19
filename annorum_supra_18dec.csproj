@@ -259,6 +259,7 @@
     <Content Include="Models\annorum_supra.edmx.diagram">
       <DependentUpon>annorum_supra.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\ftp_annorum_supra_publish.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
