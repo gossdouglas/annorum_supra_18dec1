@@ -14,8 +14,12 @@ $(document).ready(function(){
     $("#slctd_id").val("record");
   }); */
 
-   $(".record").click(function(){
-    $("#slctd_id").val(parent().record_item0).val);
+   @* $(".record").click(function(){
+    $("#slctd_id").val((this)children.("#record_item0"));
+  }); *@
+
+  $(".record").click(function(){
+    $("#slctd_id").val("12");
   });
 
 });
