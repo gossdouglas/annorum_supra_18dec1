@@ -21,20 +21,28 @@ $(document).ready(function(){
    $(".record").click(function(){//when a record class is clicked...
        //$("#slctd_id").val("12");
 
-       var selectedID = $(this).attr("id");
+       var selectedItem0 = $(this).attr("id");//works
+       //var selectedItem0 = $(this).find("#record_item0").val();//works
 
        //var selectedItem0 = $(this).children(".col-md-1").attr("id");
        //var selectedItem0 = $(this).children("#yo").attr("class");
        //var selectedItem0 = $(this).children(".col-md-1").attr("id");
        var selectedItem1 = $(this).find("#record_item1").val();//works
+       var selectedItem2 = $(this).find("#record_item2").val();
        
        //$(this).find(".form-control.record_item1").css( "background-color", "red" );//works
        //$(this).find("#record_item0").css("background-color", "red");//works
        //$(this).find("#record_item0").html("99");//works
 
-       $("#slctd_id").val(selectedID);
+       $("#slctd_id").val(selectedItem0);
        $("#slctd_type").val(selectedItem1);
-    //alert("Selected record # " + selected);
+       $("#slctd_subtype").val(selectedItem2);
+       alert(
+           "Selected for Edit or Delete POST:"+ '\n' +
+           "Record: " + selectedItem0 + '\n' +
+           "Type: " + selectedItem1 + '\n' +
+           "Sub-type: " + selectedItem2 + '\n'
+       );
   });
 
 
@@ -46,19 +54,20 @@ $(document).ready(function(){
             <div class="row">
                 <h1>Material Management</h1>                
             </div>
-			<div class="row">
-                <div class="col-md-2" >Selected ID: <input type="text" id="slctd_id" value="slctd_id"></div>
-				<div class="col-md-2" >Selected TYPE: <input type="text" id="slctd_type" value="slctd_type"></div>
-				<div class="col-md-2" >Selected SUBTYPE: <input type="text" id="slctd_subtype" value="slctd_subtype"></div>
+            <div class="row">
+                <div class="col-md-2">Selected for Edit or Delete POST:</div>
+                <div class="col-md-2">ID: <input type="text" id="slctd_id" value="slctd_id"></div>
+                <div class="col-md-2">TYPE: <input type="text" id="slctd_type" value="slctd_type"></div>
+                <div class="col-md-2">SUBTYPE: <input type="text" id="slctd_subtype" value="slctd_subtype"></div>
             </div>
 
  @foreach (var item in Model) { 
             <div class="row">
                 <div class="col-md-12">
                     <hr>
-                            <div class="record" id=@Html.DisplayFor(modelItem => item.id)>
+                            <div class="record" id=@Html.DisplayFor(modelItem => item.id) disabled="true">
 
-                                <div class="col-md-1" id="yo">yo
+                                <div class="col-md-1" id="yo">
                                     <h6>ID</h6>
                                     <p id="record_item0" value=@Html.DisplayFor(modelItem => item.id)>@Html.DisplayFor(modelItem => item.id)</p>                                                                       
                                 </div>
@@ -66,18 +75,14 @@ $(document).ready(function(){
                                 <div class="col-md-3 record_item1" id="record_item1_div">
                                     <h5>TYPE</h5>
                                     <select class="form-control record_item1" id="record_item1"> 
-                                        <option value=@Html.DisplayFor(modelItem => item.type) selected>@Html.DisplayFor(modelItem => item.type)</option>                                           
-                                        <option>2</option>                                         
-                                        <option>3</option>                                         
+                                        <option value=@Html.DisplayFor(modelItem => item.type) selected>@Html.DisplayFor(modelItem => item.type)</option>                                                                                                                            
                                     </select>                                     
                                 </div>
 
                                 <div class="col-md-3">
                                     <h5>SUB-TYPE</h5>
                                     <select class="form-control" id="record_item2"> 
-                                        <option value=@Html.DisplayFor(modelItem => item.subtype) selected>@Html.DisplayFor(modelItem => item.subtype)</option>                                     
-                                        <option>2</option>                                         
-                                        <option>3</option>                                         
+                                        <option value=@Html.DisplayFor(modelItem => item.subtype) selected>@Html.DisplayFor(modelItem => item.subtype)</option>                                                                             
                                     </select>                                     
                                 </div>
 
