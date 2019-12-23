@@ -27,8 +27,12 @@ $(document).ready(function(){
        //var selectedItem0 = $(this).children(".col-md-1").attr("id");
        //var selectedItem0 = $(this).children("#yo").attr("class");
        //var selectedItem0 = $(this).children(".col-md-1").attr("id");
-       var selectedItem1 = $(this).find("#record_item1").val();//works
-       var selectedItem2 = $(this).find("#record_item2").val();
+
+       //var selectedItem1 = $(this).find("#record_item1").val();//works, valid for inputs only
+       var selectedItem1 = $(this).find("#record_item1").html();//works valid for inner html only
+
+       //var selectedItem2 = $(this).find("#record_item2").val();//works, valid for inputs only
+       var selectedItem2 = $(this).find("#record_item2").html();//works valid for inner html only
        
        //$(this).find(".form-control.record_item1").css( "background-color", "red" );//works
        //$(this).find("#record_item0").css("background-color", "red");//works
@@ -51,55 +55,68 @@ $(document).ready(function(){
 </head>
 
 <div class="container">
-            <div class="row">
-                <h1>Material Management</h1>                
+    <div class="row">
+        <h1>Material Management</h1>
+    </div>
+    <div class="row">
+        <hr style="border: 1px solid black;">
+        <h4>Testing: Record selected for edit or delete via Axios</h4>
+    </div>
+
+    <div class="row">
+        
+            <div class="col-md-2">ID: <input type="text" id="slctd_id" value="slctd_id"></div>
+            <div class="col-md-2">TYPE: <input type="text" id="slctd_type" value="slctd_type"></div>
+            <div class="col-md-2">SUBTYPE: <input type="text" id="slctd_subtype" value="slctd_subtype"></div>
+            <div class="col-md-auto">
+                <h5>ACTION</h5>
+                <button class="btn btn-primary">Save Edit</button>
+                <button class="btn btn-primary">Delete</button>
+                <button class="btn btn-primary" disabled="true">Cancel</button>
             </div>
-            <div class="row">
-                <div class="col-md-2">Selected for Edit or Delete POST:</div>
-                <div class="col-md-2">ID: <input type="text" id="slctd_id" value="slctd_id"></div>
-                <div class="col-md-2">TYPE: <input type="text" id="slctd_type" value="slctd_type"></div>
-                <div class="col-md-2">SUBTYPE: <input type="text" id="slctd_subtype" value="slctd_subtype"></div>
-            </div><hr>
+        <hr style="border: 1px solid black;">
+    </div>
 
- @foreach (var item in Model) { 
-            <div class="row">
-                <div class="col-md-12">                    
-                            <div class="record" id=@Html.DisplayFor(modelItem => item.id) style="border: 1px solid black; padding-bottom:10px;">
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <div class="record" id=@Html.DisplayFor(modelItem => item.id) style="border: 1px solid black; padding-bottom:10px;">
 
-                                <div class="col-md-1" id="yo">
-                                    <h6>ID</h6>
-                                    <p id="record_item0" value=@Html.DisplayFor(modelItem => item.id)>@Html.DisplayFor(modelItem => item.id)</p>                                                                       
-                                </div>
+                    <div class="col-md-1" id="yo">
+                        <h6>ID</h6>
+                        <p id="record_item0" value=@Html.DisplayFor(modelItem => item.id)>@Html.DisplayFor(modelItem => item.id)</p>
+                    </div>
 
-                                <div class="col-md-3 record_item1" id="record_item1_div">
-                                    <h5>TYPE</h5>
-                                    <p id="record_item1" value=@Html.DisplayFor(modelItem => item.type)>@Html.DisplayFor(modelItem => item.type)</p>
-                                    <!--
-                                    <input type="text" id="record_item1" value=@Html.DisplayFor(modelItem => item.type)>
-                                    -->
-                                </div>
+                    <div class="col-md-3 record_item1" id="record_item1_div">
+                        <h5>TYPE</h5>
+                        <p id="record_item1" value=@Html.DisplayFor(modelItem => item.type)>@Html.DisplayFor(modelItem => item.type)</p>
+                        <!--
+                        <input type="text" id="record_item1" value=@Html.DisplayFor(modelItem => item.type)>
+                        -->
+                    </div>
 
-                                <div class="col-md-3">
-                                    <h5>SUB-TYPE</h5>
-                                    <!--
-                                    <input type="text" id="record_item2" value=@Html.DisplayFor(modelItem => item.subtype)>
-                                    -->
-                                    <p id="record_item2" value=@Html.DisplayFor(modelItem => item.subtype)>@Html.DisplayFor(modelItem => item.subtype)</p>
-                                </div>
+                    <div class="col-md-3">
+                        <h5>SUB-TYPE</h5>
+                        <!--
+                        <input type="text" id="record_item2" value=@Html.DisplayFor(modelItem => item.subtype)>
+                        -->
+                        <p id="record_item2" value=@Html.DisplayFor(modelItem => item.subtype)>@Html.DisplayFor(modelItem => item.subtype)</p>
+                    </div>
 
-                                <div class="col-md-auto">
-                                    <h5>ACTION</h5>
-                                    <button class="btn btn-primary edit">Edit</button>
-                                    <button class="btn btn-primary edit">Save</button>
-                                    <button class="btn btn-primary edit">Cancel</button>
-                                </div>
+                    <div class="col-md-auto">
+                        <h5>ACTION</h5>
+                        <button class="btn btn-primary edit" disabled="true">Edit</button>
+                        <button class="btn btn-primary edit" disabled="true">Save</button>
+                        <button class="btn btn-primary edit" disabled="true">Cancel</button>
+                    </div>
 
-                            </div>                            					
                 </div>
-            </div><br />
-			 }
-    
-        </div>         
+            </div>
+        </div><br />
+    }
+
+</div>         
         <!-- /container -->
 
 
