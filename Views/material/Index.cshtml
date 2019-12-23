@@ -73,18 +73,18 @@ $(document).ready(function(){
 
                                 <div class="col-md-3 record_item1" id="record_item1_div">
                                     <h5>TYPE</h5>
-                                    <!--<select class="form-control record_item1" id="record_item1"> 
-                                        <option value=@Html.DisplayFor(modelItem => item.type) selected>@Html.DisplayFor(modelItem => item.type)</option>                                                                                                                            
-                                    </select>--> 
-                                    <input type="text" id="record_item1" value=@Html.DisplayFor(modelItem => item.type) disabled>
+                                    <p id="record_item1" value=@Html.DisplayFor(modelItem => item.type)>@Html.DisplayFor(modelItem => item.type)</p>
+                                    <!--
+                                    <input type="text" id="record_item1" value=@Html.DisplayFor(modelItem => item.type)>
+                                    -->
                                 </div>
 
                                 <div class="col-md-3">
                                     <h5>SUB-TYPE</h5>
-                                    <!--<select class="form-control" id="record_item2"> 
-                                        <option value=@Html.DisplayFor(modelItem => item.subtype) selected>@Html.DisplayFor(modelItem => item.subtype)</option>                                                                             
-                                    </select>-->
-                                <input type="text" id="record_item2" value=@Html.DisplayFor(modelItem => item.subtype)>
+                                    <!--
+                                    <input type="text" id="record_item2" value=@Html.DisplayFor(modelItem => item.subtype)>
+                                    -->
+                                    <p id="record_item2" value=@Html.DisplayFor(modelItem => item.subtype)>@Html.DisplayFor(modelItem => item.subtype)</p>
                                 </div>
 
                                 <div class="col-md-auto">
