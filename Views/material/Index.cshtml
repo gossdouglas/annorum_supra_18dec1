@@ -37,12 +37,12 @@ $(document).ready(function(){
        $("#slctd_id").val(selectedItem0);
        $("#slctd_type").val(selectedItem1);
        $("#slctd_subtype").val(selectedItem2);
-       alert(
+       /*alert(
            "Selected for Edit or Delete POST:"+ '\n' +
            "Record: " + selectedItem0 + '\n' +
            "Type: " + selectedItem1 + '\n' +
            "Sub-type: " + selectedItem2 + '\n'
-       );
+       );*/
   });
 
 
@@ -76,19 +76,22 @@ $(document).ready(function(){
                                     <!--<select class="form-control record_item1" id="record_item1"> 
                                         <option value=@Html.DisplayFor(modelItem => item.type) selected>@Html.DisplayFor(modelItem => item.type)</option>                                                                                                                            
                                     </select>--> 
-                                    <input type="text" id="record_item1" value=@Html.DisplayFor(modelItem => item.type)>
+                                    <input type="text" id="record_item1" value=@Html.DisplayFor(modelItem => item.type) disabled>
                                 </div>
 
                                 <div class="col-md-3">
                                     <h5>SUB-TYPE</h5>
-                                    <select class="form-control" id="record_item2"> 
+                                    <!--<select class="form-control" id="record_item2"> 
                                         <option value=@Html.DisplayFor(modelItem => item.subtype) selected>@Html.DisplayFor(modelItem => item.subtype)</option>                                                                             
-                                    </select>                                     
+                                    </select>-->
+                                <input type="text" id="record_item2" value=@Html.DisplayFor(modelItem => item.subtype)>
                                 </div>
 
                                 <div class="col-md-auto">
-                                    <h5>ACTION</h5>                           	
-                                    <button class="btn btn-primary edit">Edit</button>	                                   
+                                    <h5>ACTION</h5>
+                                    <button class="btn btn-primary edit">Edit</button>
+                                    <button class="btn btn-primary edit">Save</button>
+                                    <button class="btn btn-primary edit">Cancel</button>
                                 </div>
 
                             </div>                            					
