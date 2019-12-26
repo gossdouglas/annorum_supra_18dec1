@@ -16,7 +16,7 @@ namespace annorum_supra_18dec.Controllers
 
         // GET: material
         public ActionResult Index()
-        {          
+        {
             annorum_supra_cmps411Entities entities = new annorum_supra_cmps411Entities();
             List<tbl_common_mtrl> material = entities.tbl_common_mtrl.ToList();
 
@@ -128,6 +128,24 @@ namespace annorum_supra_18dec.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        [HttpPost]
+        public ActionResult AddMaterial(tbl_common_mtrl materialAdd)
+        {
+            using (annorum_supra_cmps411Entities entities = new annorum_supra_cmps411Entities())
+            {
+                entities.tbl_common_mtrl.Add(new tbl_common_mtrl
+                {
+                    type = materialAdd.type,
+                    subtype = materialAdd.type,
+
+                });
+
+                entities.SaveChanges();
+            }
+
+            return new EmptyResult();
         }
     }
 }

@@ -7,6 +7,7 @@
 
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
 $(document).ready(function(){
 
@@ -47,9 +48,22 @@ $(document).ready(function(){
            "Type: " + selectedItem1 + '\n' +
            "Sub-type: " + selectedItem2 + '\n'
        );*/
-  });
+   });
 
+    $("#saveEdit").click(function () {//
+        /*var selectedItem0 = $(this).find("#slctd_id").val();
+        var selectedItem1 = $(this).find("#slctd_type").val();
+        var selectedItem2 = $(this).find("#slctd_subtype").val();*/
 
+        alert(
+           "Selected for Edit or Delete POST:"+ '\n' +
+           "Record: " + selectedItem0 + '\n' +
+           "Type: " + selectedItem1 + '\n' +
+           "Sub-type: " + selectedItem2 + '\n'
+       )
+
+        console.log("yo");
+        });
 });
 </script>
 </head>
@@ -58,24 +72,31 @@ $(document).ready(function(){
     <div class="row">
         <h1>Material Management</h1>
     </div>
-    <div class="row">
-        <hr style="border: 1px solid black;">
-        <h4>Testing: Record selected for edit or delete via Axios</h4>
-    </div>
 
-    <div class="row">
-        
+    <!--testing begin-->
+    <div>
+        <div class="row">
+            <hr style="border: 1px solid red;">
+            <h4>Testing: Record selected for edit or delete via Axios</h4>
+        </div>
+
+        <div class="row">
+
             <div class="col-md-2">ID: <input type="text" id="slctd_id" value="slctd_id"></div>
             <div class="col-md-2">TYPE: <input type="text" id="slctd_type" value="slctd_type"></div>
             <div class="col-md-2">SUBTYPE: <input type="text" id="slctd_subtype" value="slctd_subtype"></div>
             <div class="col-md-auto">
                 <h5>ACTION</h5>
-                <button class="btn btn-primary">Save Edit</button>
+                <button class="btn btn-primary" id="saveEdit">Save Edit</button>
                 <button class="btn btn-primary">Delete</button>
-                <button class="btn btn-primary" disabled="true">Cancel</button>
+                <button class="btn btn-primary">Cancel</button>
             </div>
-        <hr style="border: 1px solid black;">
+            <h4>Testing: Record selected for edit or delete via Axios</h4>
+            <hr style="border: 1px solid red;">
+        </div>
     </div>
+    <!--testing end-->
+
 
     @foreach (var item in Model)
     {
@@ -106,9 +127,9 @@ $(document).ready(function(){
 
                     <div class="col-md-auto">
                         <h5>ACTION</h5>
-                        <button class="btn btn-primary edit" disabled="true">Edit</button>
-                        <button class="btn btn-primary edit" disabled="true">Save</button>
-                        <button class="btn btn-primary edit" disabled="true">Cancel</button>
+                        <button class="btn btn-primary edit" id="editRecord">Edit</button>
+                        <button class="btn btn-primary edit">Save</button>
+                        <button class="btn btn-primary edit">Cancel</button>
                     </div>
 
                 </div>

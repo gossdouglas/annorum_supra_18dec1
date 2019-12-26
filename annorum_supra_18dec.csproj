@@ -312,9 +312,11 @@
     <Content Include="Views\material\Index.cshtml" />
     <Content Include="Views\Shared\_Layout-orig.cshtml" />
     <Content Include="Views\material\Index-orig.cshtml" />
+    <Content Include="Views\material\Index-22dec.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\img\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
