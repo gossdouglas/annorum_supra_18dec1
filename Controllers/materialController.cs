@@ -10,7 +10,7 @@ using annorum_supra_18dec.Models;
 
 namespace annorum_supra_18dec.Controllers
 {
-    public class materialController : Controller
+    public class MaterialController : Controller
     {
         private annorum_supra_cmps411Entities db = new annorum_supra_cmps411Entities();
 
