@@ -5,11 +5,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script>
-$(document).ready(function(){
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!--
+
+    -->
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+        <script>
+$(document).ready(function(){//begin document read jquery statements
 
   /*$(".record").click(function(){
     $("#slctd_id").val("record");
@@ -34,7 +39,7 @@ $(document).ready(function(){
 
        //var selectedItem2 = $(this).find("#record_item2").val();//works, valid for inputs only
        var selectedItem2 = $(this).find("#record_item2").html();//works valid for inner html only
-       
+
        //$(this).find(".form-control.record_item1").css( "background-color", "red" );//works
        //$(this).find("#record_item0").css("background-color", "red");//works
        //$(this).find("#record_item0").html("99");//works
@@ -54,31 +59,55 @@ $(document).ready(function(){
         $(this).hide();
         $(this).parent().find(".updateButton").show();
         $(this).parent().find(".deleteButton").hide();
-        $(this).parent().find(".cancelButton").show();       
+        $(this).parent().find(".cancelButton").show();
     });
     $(".btn.btn-primary.updateButton").click(function () {//when a record's edit button is clicked...
         $(this).hide();
         $(this).parent().find(".updateButton").show();
         $(this).parent().find(".deleteButton").hide();
-        $(this).parent().find(".cancelButton").show();        
+        $(this).parent().find(".cancelButton").show();
     });
     $(".btn.btn-primary.deleteButton").click(function () {//when a record's edit button is clicked...
         $(this).hide();
         $(this).parent().find(".updateButton").show();
         $(this).parent().find(".deleteButton").hide();
         $(this).parent().find(".cancelButton").show();
-        
+
     });
     $(".btn.btn-primary.cancelButton").click(function () {//when a record's edit button is clicked...
         $(this).parent().find(".editButton").show();
         $(this).parent().find(".updateButton").hide();
         $(this).parent().find(".deleteButton").show();
-        $(this).hide();       
-        });
+        $(this).hide();
+    });
+    $("#addButton").click(function () {//when the add button is clicked...
+        var addItem1 = $("#addRecordItem1").val();
+        var addItem2 = $("#addRecordItem2").val();
 
-});
-</script>
-</head>
+        alert(
+           "Selected for Add POST:"+ '\n' +
+           "addItem1: " + addItem1 + '\n' +
+            "addItem2: " + addItem2 + '\n'
+        );
+//begin axios add post
+
+        axios.post('/Material/AddMaterial', {           
+            type: addItem1,
+            subtype: addItem2,
+          })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+
+//end axios add post
+    });//end #addButton
+
+});//end document read jquery statements
+        </script>
+    </head>
 
 <div class="container">
     <div class="row">
@@ -109,6 +138,48 @@ $(document).ready(function(){
         </div>
     </div>
     <!--testing end-->
+    <!--add record begin-->
+    <h4>Testing: Add Record via Axios</h4>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="record" id="">
+
+                <div class="col-md-1" id="yo">
+                    <h6>ID</h6>
+                    <p id="addRecord_item0" value="">AUTO</p>
+                </div>
+
+                <div class="col-md-3" id="">
+                    <h5>TYPE</h5>
+
+                    <!--
+
+                    <p id="record_item1" value=""></p>
+                        
+                    -->
+                    <input type="text" id="addRecordItem1" value="">
+                </div>
+
+                <div class="col-md-3">
+                    <h5>SUB-TYPE</h5>
+                    <!--
+
+                    <p id="record_item2" value=""></p> -->
+
+                    <input type="text" id="addRecordItem2" value="">
+                </div>
+
+                <div class="col-md-auto">
+                    <h5>ACTION</h5>
+                    <button class="btn btn-primary" id="addButton">Add</button>
+                </div>
+
+            </div>
+        </div>
+    </div><br />
+    <h4>Testing: Add Record via Axios</h4>
+    <hr style="border: 1px solid red;">
+    <!--add record end-->
 
 
     @foreach (var item in Model)

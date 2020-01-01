@@ -138,7 +138,7 @@ namespace annorum_supra_18dec.Controllers
                 entities.tbl_common_mtrl.Add(new tbl_common_mtrl
                 {
                     type = materialAdd.type,
-                    subtype = materialAdd.type,
+                    subtype = materialAdd.subtype,
 
                 });
 

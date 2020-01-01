@@ -185,7 +185,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\materialController.cs" />
+    <Compile Include="Controllers\MaterialController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -250,6 +250,8 @@
       <DependentUpon>annorum_supra.edmx</DependentUpon>
       <LastGenOutput>annorum_supra.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\axios.js" />
+    <Content Include="Scripts\axios.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\annorum_supra.edmx">

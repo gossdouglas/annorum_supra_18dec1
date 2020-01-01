@@ -4,13 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="annorum_supra_cmps411Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="annorum_supra_cmps411Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tbl_common_mtrl">
           <Key>
             <PropertyRef Name="type" />
             <PropertyRef Name="subtype" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
           <Property Name="type" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="subtype" Type="nvarchar" MaxLength="25" Nullable="false" />
         </EntityType>
@@ -194,8 +193,7 @@
             <End Role="tbl_product" EntitySet="tbl_product" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="annorum_supra_cmps411Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -204,7 +202,6 @@
             <PropertyRef Name="type" />
             <PropertyRef Name="subtype" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="type" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="subtype" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="tbl_expense" Relationship="Self.FK_TBL_EXPENSE_TBL_COMMON_MTRL" FromRole="tbl_common_mtrl" ToRole="tbl_expense" />
@@ -409,7 +406,6 @@
           <EntitySetMapping Name="tbl_common_mtrl">
             <EntityTypeMapping TypeName="annorum_supra_cmps411Model.tbl_common_mtrl">
               <MappingFragment StoreEntitySet="tbl_common_mtrl">
-                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="type" ColumnName="type" />
                 <ScalarProperty Name="subtype" ColumnName="subtype" />
               </MappingFragment>
