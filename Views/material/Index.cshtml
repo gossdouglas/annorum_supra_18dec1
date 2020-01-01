@@ -11,33 +11,14 @@
  <script>
 $(document).ready(function(){//begin document read jquery statements
 
-  /*$(".record").click(function(){
-    $("#slctd_id").val("record");
-  }); */
-
-   @* $(".record").click(function(){//when a record class is clicked...
-    $("#slctd_id").val((this)children.("#record_item0"));
-  }); *@
-
    $(".record").click(function(){//when a record class is clicked...
-       //$("#slctd_id").val("12");
+       /*var selectedItem0 = $(this).attr("id");//works    
+       var selectedItem1 = $(this).find("#record_item1").html();//works valid for inner html only      
+       var selectedItem2 = $(this).find("#record_item2").html();//works valid for inner html only*/
 
-       var selectedItem0 = $(this).attr("id");//works
-       //var selectedItem0 = $(this).find("#record_item0").val();//works
-
-       //var selectedItem0 = $(this).children(".col-md-1").attr("id");
-       //var selectedItem0 = $(this).children("#yo").attr("class");
-       //var selectedItem0 = $(this).children(".col-md-1").attr("id");
-
-       //var selectedItem1 = $(this).find("#record_item1").val();//works, valid for inputs only
-       var selectedItem1 = $(this).find("#record_item1").html();//works valid for inner html only
-
-       //var selectedItem2 = $(this).find("#record_item2").val();//works, valid for inputs only
-       var selectedItem2 = $(this).find("#record_item2").html();//works valid for inner html only
-
-       //$(this).find(".form-control.record_item1").css( "background-color", "red" );//works
-       //$(this).find("#record_item0").css("background-color", "red");//works
-       //$(this).find("#record_item0").html("99");//works
+        selectedItem0 = $(this).attr("id");//works    
+        selectedItem1 = $(this).find("#record_item1").html();//works valid for inner html only      
+        selectedItem2 = $(this).find("#record_item2").html();//works valid for inner html only
 
        $("#slctd_id").val(selectedItem0);
        $("#slctd_type").val(selectedItem1);
@@ -74,25 +55,24 @@ $(document).ready(function(){//begin document read jquery statements
 //begin axios confirm delete record
 
         alert(
-           "Selected for Delete:"+ '\n' +
-           "Record: " + selectedItem0 + '\n' +
-           /*"Type: " + selectedItem1 + '\n' +
-           "Sub-type: " + selectedItem2 + '\n'*/
-       );
+            "Selected for DELETE:"+ '\n' +
+            "Record: " + selectedItem0 + '\n' +
+            "Type: " + selectedItem1 + '\n' +
+            "Sub-type: " + selectedItem2 + '\n');
 
-        /*axios.delete('/Material/DeleteMaterial', {                                 
+        axios.post('/Material/DeleteMaterial', {           
             type: selectedItem1,
-            subtype: selectedItem2
+            subtype: selectedItem2,
           })
           .then(function (response) {
             console.log(response);
           })
           .catch(function (error) {
             console.log(error);
-          });*/
-
-//end axios confirm delete record
+          });
         
+
+//end axios confirm delete record     
     });
     $(".btn.btn-primary.cancelButton").click(function () {//when a record's edit button is clicked...      
         $(this).parent().find(".editButton").show();
