@@ -68,17 +68,23 @@ $(document).ready(function(){//begin document read jquery statements
         $(this).parent().find(".cancelButton").show();
     });
     $(".btn.btn-primary.deleteButton").click(function () {//when a record's edit button is clicked...
-        $(this).hide();
-        $(this).parent().find(".updateButton").show();
-        $(this).parent().find(".deleteButton").hide();
+        $(this).parent().find(".editButton").hide();
+        $(this).parent().find(".updateButton").hide();
+        $(this).parent().find(".deleteButton").show();       
         $(this).parent().find(".cancelButton").show();
+        $(this).parent().find(".confirmButton").show();
 
     });
-    $(".btn.btn-primary.cancelButton").click(function () {//when a record's edit button is clicked...
+    $(".btn.btn-primary.confirmButton").click(function () {//when a record's edit button is clicked...
+        
+
+    });
+    $(".btn.btn-primary.cancelButton").click(function () {//when a record's edit button is clicked...      
         $(this).parent().find(".editButton").show();
         $(this).parent().find(".updateButton").hide();
-        $(this).parent().find(".deleteButton").show();
-        $(this).hide();
+        $(this).parent().find(".deleteButton").show();       
+        $(this).parent().find(".cancelButton").hide();
+        $(this).parent().find(".confirmButton").hide();
     });
     $("#addButton").click(function () {//when the add button is clicked...
         var addItem1 = $("#addRecordItem1").val();
@@ -89,6 +95,8 @@ $(document).ready(function(){//begin document read jquery statements
            "addItem1: " + addItem1 + '\n' +
             "addItem2: " + addItem2 + '\n'
         );
+        $("#addRecordItem1").val('');
+        $("#addRecordItem2").val('');
 //begin axios add post
 
         axios.post('/Material/AddMaterial', {           
@@ -214,6 +222,7 @@ $(document).ready(function(){//begin document read jquery statements
                         <button class="btn btn-primary editButton">Edit</button>
                         <button class="btn btn-primary updateButton" style="display:none;">Update</button>
                         <button class="btn btn-primary deleteButton">Delete</button>
+                        <button class="btn btn-primary confirmButton" style="display:none;">Confirm</button>
                         <button class="btn btn-primary cancelButton" style="display:none;">Cancel</button>
                     </div>
 

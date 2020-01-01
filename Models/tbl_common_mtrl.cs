@@ -20,9 +20,9 @@ namespace annorum_supra_18dec.Models
             this.tbl_expense = new HashSet<tbl_expense>();
         }
     
-        public int id { get; set; }
         public string type { get; set; }
         public string subtype { get; set; }
+        public int id { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_expense> tbl_expense { get; set; }
