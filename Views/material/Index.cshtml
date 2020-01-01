@@ -5,15 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-    <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <!--
-
-    -->
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
-
-        <script>
+<head>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+ <script>
 $(document).ready(function(){//begin document read jquery statements
 
   /*$(".record").click(function(){
@@ -75,9 +70,29 @@ $(document).ready(function(){//begin document read jquery statements
         $(this).parent().find(".confirmButton").show();
 
     });
-    $(".btn.btn-primary.confirmButton").click(function () {//when a record's edit button is clicked...
-        
+    $(".btn.btn-primary.confirmButton").click(function () {//when a record's delete button is clicked...
+//begin axios confirm delete record
 
+        alert(
+           "Selected for Delete:"+ '\n' +
+           "Record: " + selectedItem0 + '\n' +
+           /*"Type: " + selectedItem1 + '\n' +
+           "Sub-type: " + selectedItem2 + '\n'*/
+       );
+
+        /*axios.delete('/Material/DeleteMaterial', {                                 
+            type: selectedItem1,
+            subtype: selectedItem2
+          })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });*/
+
+//end axios confirm delete record
+        
     });
     $(".btn.btn-primary.cancelButton").click(function () {//when a record's edit button is clicked...      
         $(this).parent().find(".editButton").show();
@@ -114,8 +129,8 @@ $(document).ready(function(){//begin document read jquery statements
     });//end #addButton
 
 });//end document read jquery statements
-        </script>
-    </head>
+ </script>
+</head>
 
 <div class="container">
     <div class="row">

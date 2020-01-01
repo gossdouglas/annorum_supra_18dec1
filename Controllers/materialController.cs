@@ -147,5 +147,14 @@ namespace annorum_supra_18dec.Controllers
 
             return new EmptyResult();
         }
+
+        public ActionResult DeleteMaterial(tbl_common_mtrl materialDelete)
+        {
+            //tbl_common_mtrl tbl_common_mtrl = db.tbl_common_mtrl.Find(materialDelete.id);
+            tbl_common_mtrl tbl_common_mtrl = db.tbl_common_mtrl.Find(materialDelete.type, materialDelete.subtype);
+            db.tbl_common_mtrl.Remove(tbl_common_mtrl);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
