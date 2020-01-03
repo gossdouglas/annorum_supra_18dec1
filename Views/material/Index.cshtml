@@ -36,17 +36,21 @@ $(document).ready(function(){//begin document read jquery statements
         $(this).parent().find(".updateButton").show();
         $(this).parent().find(".deleteButton").hide();
         $(this).parent().find(".cancelButton").show();
+
+        $(this).parent().find("#record_item1").hide();
     });
     $(".btn.btn-primary.updateButton").click(function () {//when a record's edit button is clicked...
         $(this).hide();
         $(this).parent().find(".updateButton").show();
         $(this).parent().find(".deleteButton").hide();
         $(this).parent().find(".cancelButton").show();
+
+        $(this).parent().find(".cancelButton").show();
     });
     $(".btn.btn-primary.deleteButton").click(function () {//when a record's edit button is clicked...
         $(this).parent().find(".editButton").hide();
         $(this).parent().find(".updateButton").hide();
-        $(this).parent().find(".deleteButton").show();       
+        $(this).parent().find(".deleteButton").hide();       
         $(this).parent().find(".cancelButton").show();
         $(this).parent().find(".confirmButton").show();
 
@@ -199,19 +203,20 @@ $(document).ready(function(){//begin document read jquery statements
                     <div class="col-md-3 record_item1" id="record_item1_div">
                         <h5>TYPE</h5>
 
-                        <!--<p id="record_item1" value=@Html.DisplayFor(modelItem => item.type)>@Html.DisplayFor(modelItem => item.type)</p>
+                        <!--<input type="text" id="record_item1" value=@Html.DisplayFor(modelItem => item.type)>
 
     -->
-                        <input type="text" id="record_item1" value=@Html.DisplayFor(modelItem => item.type) disabled>
+                        <p id="record_item1" value=@Html.DisplayFor(modelItem => item.type)>@Html.DisplayFor(modelItem => item.type)</p>
+
                     </div>
 
                     <div class="col-md-3">
                         <h5>SUB-TYPE</h5>
                         <!--
 
-                        <p id="record_item2" value=@Html.DisplayFor(modelItem => item.subtype)>@Html.DisplayFor(modelItem => item.subtype)</p>
+                        <input type="text" id="record_item2" value=@Html.DisplayFor(modelItem => item.subtype)>
     -->
-                        <input type="text" id="record_item2" value=@Html.DisplayFor(modelItem => item.subtype) disabled>
+                        <p id="record_item2" value=@Html.DisplayFor(modelItem => item.subtype)>@Html.DisplayFor(modelItem => item.subtype)</p>
                     </div>
 
                     <div class="col-md-auto">
