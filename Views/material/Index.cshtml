@@ -198,18 +198,20 @@ $(document).ready(function(){//begin document read jquery statements
 
                     <div class="col-md-3 record_item1" id="record_item1_div">
                         <h5>TYPE</h5>
-                        <p id="record_item1" value=@Html.DisplayFor(modelItem => item.type)>@Html.DisplayFor(modelItem => item.type)</p>
-                        <!--
-                        <input type="text" id="record_item1" value=@Html.DisplayFor(modelItem => item.type)>
-                        -->
+
+                        <!--<p id="record_item1" value=@Html.DisplayFor(modelItem => item.type)>@Html.DisplayFor(modelItem => item.type)</p>
+
+    -->
+                        <input type="text" id="record_item1" value=@Html.DisplayFor(modelItem => item.type) disabled>
                     </div>
 
                     <div class="col-md-3">
                         <h5>SUB-TYPE</h5>
                         <!--
-                        <input type="text" id="record_item2" value=@Html.DisplayFor(modelItem => item.subtype)>
-                        -->
+
                         <p id="record_item2" value=@Html.DisplayFor(modelItem => item.subtype)>@Html.DisplayFor(modelItem => item.subtype)</p>
+    -->
+                        <input type="text" id="record_item2" value=@Html.DisplayFor(modelItem => item.subtype) disabled>
                     </div>
 
                     <div class="col-md-auto">
