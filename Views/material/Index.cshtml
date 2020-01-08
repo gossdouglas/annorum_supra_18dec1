@@ -32,7 +32,7 @@ $(document).ready(function(){//begin document read jquery statements
    });
 
     $(".btn.btn-primary.editButton").click(function () {//when a record's edit button is clicked...
-        $(this).hide();
+        $(this).parent().find(".editButton").hide();
         $(this).parent().find(".updateButton").show();
         $(this).parent().find(".deleteButton").hide();
         $(this).parent().find(".cancelButton").show();
@@ -43,9 +43,7 @@ $(document).ready(function(){//begin document read jquery statements
         $(this).hide();
         $(this).parent().find(".updateButton").show();
         $(this).parent().find(".deleteButton").hide();
-        $(this).parent().find(".cancelButton").show();
-
-        $(this).parent().find(".cancelButton").show();
+        $(this).parent().find(".cancelButton").show();      
     });
     $(".btn.btn-primary.deleteButton").click(function () {//when a record's edit button is clicked...
         $(this).parent().find(".editButton").hide();
@@ -53,7 +51,6 @@ $(document).ready(function(){//begin document read jquery statements
         $(this).parent().find(".deleteButton").hide();       
         $(this).parent().find(".cancelButton").show();
         $(this).parent().find(".confirmButton").show();
-
     });
     $(".btn.btn-primary.confirmButton").click(function () {//when a record's delete button is clicked...
 //begin axios confirm delete record
