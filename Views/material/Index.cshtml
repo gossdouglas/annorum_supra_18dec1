@@ -11,7 +11,8 @@
  <script>
 $(document).ready(function(){//begin document read jquery statements
 
-   $(".record").click(function(){//when a record class is clicked...
+    //begin when a record class is clicked...
+   $(".record").click(function(){
        /*var selectedItem0 = $(this).attr("id");//works    
        var selectedItem1 = $(this).find("#record_item1").html();//works valid for inner html only      
        var selectedItem2 = $(this).find("#record_item2").html();//works valid for inner html only*/
@@ -30,6 +31,7 @@ $(document).ready(function(){//begin document read jquery statements
            "Sub-type: " + selectedItem2 + '\n'
        );*/
    });
+    //end when a record class is clicked...
 
     $(".btn.btn-primary.editButton").click(function () {//when a record's edit button is clicked...
         $(this).parent().find(".editButton").hide();
@@ -39,11 +41,12 @@ $(document).ready(function(){//begin document read jquery statements
 
         $(this).parent().find("#record_item1").hide();
     });
-    $(".btn.btn-primary.updateButton").click(function () {//when a record's edit button is clicked...
-        $(this).hide();
-        $(this).parent().find(".updateButton").show();
-        $(this).parent().find(".deleteButton").hide();
-        $(this).parent().find(".cancelButton").show();      
+    $(".btn.btn-primary.cancelButton").click(function () {//when a record's edit button is clicked...      
+        $(this).parent().find(".editButton").show();
+        $(this).parent().find(".updateButton").hide();
+        $(this).parent().find(".deleteButton").show();       
+        $(this).parent().find(".cancelButton").hide();
+        $(this).parent().find(".confirmButton").hide();
     });
     $(".btn.btn-primary.deleteButton").click(function () {//when a record's edit button is clicked...
         $(this).parent().find(".editButton").hide();
@@ -52,36 +55,8 @@ $(document).ready(function(){//begin document read jquery statements
         $(this).parent().find(".cancelButton").show();
         $(this).parent().find(".confirmButton").show();
     });
-    $(".btn.btn-primary.confirmButton").click(function () {//when a record's delete button is clicked...
-//begin axios confirm delete record
-
-        alert(
-            "Selected for DELETE:"+ '\n' +
-            "Record: " + selectedItem0 + '\n' +
-            "Type: " + selectedItem1 + '\n' +
-            "Sub-type: " + selectedItem2 + '\n');
-
-        axios.post('/Material/DeleteMaterial', {           
-            type: selectedItem1,
-            subtype: selectedItem2,
-          })
-          .then(function (response) {
-            console.log(response);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-        
-
-//end axios confirm delete record     
-    });
-    $(".btn.btn-primary.cancelButton").click(function () {//when a record's edit button is clicked...      
-        $(this).parent().find(".editButton").show();
-        $(this).parent().find(".updateButton").hide();
-        $(this).parent().find(".deleteButton").show();       
-        $(this).parent().find(".cancelButton").hide();
-        $(this).parent().find(".confirmButton").hide();
-    });
+  
+    //begin #addButton
     $("#addButton").click(function () {//when the add button is clicked...
         var addItem1 = $("#addRecordItem1").val();
         var addItem2 = $("#addRecordItem2").val();
@@ -107,7 +82,39 @@ $(document).ready(function(){//begin document read jquery statements
           });
 
 //end axios add post
-    });//end #addButton
+    });
+    //end #addButton
+
+    //begin confirm edit record
+    $(".btn.btn-primary.updateButton").click(function () {//when a record's edit button is clicked...
+        $(this).hide();
+        $(this).parent().find(".updateButton").show();
+        $(this).parent().find(".deleteButton").hide();
+        $(this).parent().find(".cancelButton").show();      
+    });
+    //end confirm edit record
+
+    //begin axios confirm delete record
+    $(".btn.btn-primary.confirmButton").click(function () {//when a record's delete button is clicked...
+        alert(
+            "Selected for DELETE:"+ '\n' +
+            "Record: " + selectedItem0 + '\n' +
+            "Type: " + selectedItem1 + '\n' +
+            "Sub-type: " + selectedItem2 + '\n');
+
+        axios.post('/Material/DeleteMaterial', {           
+            type: selectedItem1,
+            subtype: selectedItem2,
+          })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+            
+    });
+    //end axios confirm delete record
 
 });//end document read jquery statements
  </script>
