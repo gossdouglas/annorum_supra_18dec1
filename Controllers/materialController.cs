@@ -156,5 +156,21 @@ namespace annorum_supra_18dec.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public ActionResult UpdateMaterial(tbl_common_mtrl materialUpdate)
+        {
+            using (annorum_supra_cmps411Entities entities = new annorum_supra_cmps411Entities())
+            {
+                tbl_common_mtrl updatedMaterial = (from c in entities.tbl_common_mtrl
+                                                   where c.id == materialUpdate.id
+                                                 select c).FirstOrDefault();
+                updatedMaterial.type = materialUpdate.type;
+                updatedMaterial.subtype = materialUpdate.subtype;                
+                entities.SaveChanges();
+            }
+
+            return new EmptyResult();
+        }
     }
 }
